@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbxhp8wtewk0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2vrx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="PlayerPig" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n2vrx")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
