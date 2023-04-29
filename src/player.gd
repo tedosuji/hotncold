@@ -1,6 +1,6 @@
 extends Area2D
 
-signal touching
+signal dig
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
@@ -40,6 +40,8 @@ func _process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
+		
+		
 
 #function to start at a position for the pig
 func start(pos):
