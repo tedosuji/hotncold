@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjaywkqhm3wy6"]
+
+[ext_resource type="Script" path="res://src/Truffle.gd" id="1_3hy0y"]
+[ext_resource type="Texture2D" uid="uid://d4bs6s4o0qk0e" path="res://assets/sprites/enemySwimming_1.png" id="1_tgqoi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eoed7"]
+radius = 13.0
+height = 34.0
+
+[node name="Truffle" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_3hy0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_eoed7")
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_tgqoi")
+metadata/_edit_group_ = true
