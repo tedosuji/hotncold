@@ -2,21 +2,21 @@
 pwd
 
 ##if it's not reading something like ~/Documents/Git/catclicker, do this command to move into the folder
-cd ~/Documents/Git/catclicker
+cd ~/Documents/Git/hotncold
 
 ##check again the folder status for MINGW64 ~/Documents/Git/catclicker (master)
 pwd
 
 ##once in correct folder
 ##this command will pull & overwrite anything you have from master branch
-git pull origin master
+git pull origin main
 
 ##how to check on your commit/push status
 git status
 
 ##committing changed files to push/merge to master
 git commit -am "commit message here, spaces allowed"
-git push origin master
+git push origin main
 
 ##create a new branch for working, no spaces allowed in the name
 git checkout -b branch_name
@@ -31,17 +31,17 @@ git checkout branch_name
 git merge branch_name
 
 ##if seeing a merge conflict, you need to pull changes from master first, then do this
-git pull --rebase origin master
+git pull --rebase origin main
 
 
 
 
 GENERAL WORKFLOW
-1. Pull master for fresh updates
+1. Pull main for fresh updates
 2. create and switch to branch to start working on something new
 3. do work on said files
 4. if any NEW files have been created, git add --all them
 5. commit the changes
-6. checkout master branch
-7. merge the branch to master
-8. push to origin master
+6. checkout main branch
+7. merge the branch to main
+8. push to origin main
