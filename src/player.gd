@@ -1,5 +1,7 @@
 extends Area2D
 
+signal touching
+
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 
@@ -7,7 +9,6 @@ var screen_size # Size of the game window.
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
