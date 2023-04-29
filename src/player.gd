@@ -8,6 +8,7 @@ var screen_size # Size of the game window.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	#connect("body_entered", self, "_on_body_entered")
 	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,3 +49,11 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+func _on_body_entered(body):
+  # Check if the colliding body is a sprite
+	if body.name == "Truffle":
+		# Check if the "Z" key is pressed
+		if Input.is_action_pressed("ui_cancel"):
+			# Delete the sprite
+			body.queue_free()

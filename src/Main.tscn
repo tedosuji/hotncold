@@ -8,7 +8,7 @@
 script = ExtResource("1_cakcx")
 mob_scene = ExtResource("2_lxh03")
 
-[node name="PlayerPig" parent="." instance=ExtResource("1_75l0g")]
+[node name="Player" parent="." instance=ExtResource("1_75l0g")]
 
 [node name="StageTimer" type="Timer" parent="."]
 
@@ -19,4 +19,4 @@ one_shot = true
 [node name="PlayerStart" type="Marker2D" parent="."]
 position = Vector2(240, 450)
 
-[connection signal="dig" from="PlayerPig" to="." method="player_dig"]
+[connection signal="dig" from="Player" to="." method="player_dig"]

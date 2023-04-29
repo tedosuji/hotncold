@@ -7,7 +7,7 @@
 radius = 13.0
 height = 34.0
 
-[node name="Truffle" type="RigidBody2D"]
+[node name="Truffle" type="RigidBody2D" groups=["truffles"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_3hy0y")
