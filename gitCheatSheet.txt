@@ -1,0 +1,47 @@
+##check to make sure you're in the catclicker folder
+pwd
+
+##if it's not reading something like ~/Documents/Git/catclicker, do this command to move into the folder
+cd ~/Documents/Git/catclicker
+
+##check again the folder status for MINGW64 ~/Documents/Git/catclicker (master)
+pwd
+
+##once in correct folder
+##this command will pull & overwrite anything you have from master branch
+git pull origin master
+
+##how to check on your commit/push status
+git status
+
+##committing changed files to push/merge to master
+git commit -am "commit message here, spaces allowed"
+git push origin master
+
+##create a new branch for working, no spaces allowed in the name
+git checkout -b branch_name
+
+##how to check git branches
+git branch
+
+##how to switch branches, no quotes or spaces
+git checkout branch_name
+
+##if using a branch, switch back to master, no quotes or spaces
+git merge branch_name
+
+##if seeing a merge conflict, you need to pull changes from master first, then do this
+git pull --rebase origin master
+
+
+
+
+GENERAL WORKFLOW
+1. Pull master for fresh updates
+2. create and switch to branch to start working on something new
+3. do work on said files
+4. if any NEW files have been created, git add --all them
+5. commit the changes
+6. checkout master branch
+7. merge the branch to master
+8. push to origin master
