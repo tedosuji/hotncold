@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ewq"]
 size = Vector2(53, 56)
 
-[node name="Truffle" type="RigidBody2D" groups=["truffles"]]
+[node name="Truffle" type="RigidBody2D" groups=["Truffle", "Truffles", "truffle", "truffles"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_3hy0y")

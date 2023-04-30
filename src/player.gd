@@ -42,7 +42,8 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 		
-		
+	
+	
 
 #function to start at a position for the pig
 func start(pos):

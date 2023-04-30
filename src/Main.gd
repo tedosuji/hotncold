@@ -39,15 +39,8 @@ func _input_dig(event):
 			if current_truffle != null:
 				current_truffle.queue_free()
 
-func _on_Player_body_entered(body):
-	if body.is_in_group("truffles"):
-		current_truffle = body
-		print(body,current_truffle)
-
-func _on_Player_body_exited(body):
-	if current_truffle == body:
-		current_truffle = null
-		print(current_truffle)
+		
+		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -63,3 +56,13 @@ func new_game():
 		#if <= 25 pix away, yellow
 		#if <= 100 pix away, blue
 		#if > 100 pix away, sadface
+
+
+func _on_player_body_entered(body):
+	current_truffle = body
+	print("touching")
+
+
+func _on_player_body_exited(body):
+	current_truffle = null
+	print("not touching")
