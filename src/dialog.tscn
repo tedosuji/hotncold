@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://1o4lwclrqaol"]
+
+[ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="1_lqerx"]
+
+[node name="dialog" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 452.0
+offset_top = 494.0
+offset_right = 1259.0
+offset_bottom = 692.0
+texture = ExtResource("1_lqerx")
+region_rect = Rect2(384, 352, 96, 64)
+patch_margin_left = 21
+patch_margin_top = 11
+patch_margin_right = 24
+patch_margin_bottom = 18

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddbxhp8wtewk0"]
+[gd_scene load_steps=6 format=3 uid="uid://ddbxhp8wtewk0"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_x52mk"]
 [ext_resource type="Texture2D" uid="uid://1cxy0krvd6g0" path="res://assets/sprites/player_pig_stand.png" id="2_2b080"]
+[ext_resource type="PackedScene" uid="uid://1o4lwclrqaol" path="res://src/dialog.tscn" id="3_bup3d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2vrx"]
 animations = [{
@@ -41,6 +42,7 @@ shape = SubResource("CapsuleShape2D_1ode1")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 1)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
@@ -48,3 +50,5 @@ limit_right = 1279
 limit_bottom = 735
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="dialog" parent="Camera2D" instance=ExtResource("3_bup3d")]
