@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4syj0xx8clvu"]
+
+[ext_resource type="Texture2D" uid="uid://dueq4u0g0g3w0" path="res://assets/sprites/player_pig2.png" id="1_lqq7g"]
+[ext_resource type="Script" path="res://src/player2.gd" id="1_xx2y2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ugr4"]
+size = Vector2(32, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_xx2y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lqq7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_6ugr4")
