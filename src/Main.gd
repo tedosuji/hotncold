@@ -61,6 +61,11 @@ func new_game():
 func _on_player_body_entered(body):
 	current_truffle = body
 	print("touching")
+	# Check if the "Z" key is pressed
+	#if Input.is_action_presseddd("dig"):
+	# Delete the sprite
+	current_truffle.queue_free()
+	print("deleting",body.name)
 
 
 func _on_player_body_exited(body):

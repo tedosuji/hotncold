@@ -27,7 +27,8 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
 
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
