@@ -9,14 +9,32 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var direction : Vector2 = Vector2.ZERO
 
-func handleInput():
-	var movedirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = movedirection * SPEED
+func _ready():
+	animation_tree.active = true
 
 func updateAnimation():
-	animation_tree.set("parameters/walk/blend_position", direction.x)
-
+	if direction.x != 0:
+		animation_tree.set("parameters/walk/blend_position", direction.x)
+	else:
+		animation_tree.set("parameters/walk/blend_position", direction.y)
+		
 func _physics_process(delta):
-	handleInput()
+	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = direction * SPEED
+	
+	var state_machine = $AnimationTree.get("parameters/playback")
+	
+	state_machine.travel("walk")
+	if direction.x < 0:
+		sprite.flip_h = false
+		
+	elif direction.x > 0:
+		sprite.flip_h = true
+		
+	#if direction.y != 0:
+		#state_machine.travel("walk")
+	if Input.is_action_pressed("action"):
+		state_machine.travel("dig")	
+	
 	move_and_slide()
 	updateAnimation()

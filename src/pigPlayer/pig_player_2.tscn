@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfv2vxcjsl6rq"]
+[gd_scene load_steps=22 format=3 uid="uid://cfv2vxcjsl6rq"]
 
 [ext_resource type="Script" path="res://src/pigPlayer/pigPlayer2.gd" id="1_dm5fd"]
 [ext_resource type="Texture2D" uid="uid://c6umh8hm2onff" path="res://assets/sprites/playerpig_dig.png" id="2_6tecd"]
@@ -152,31 +152,40 @@ _data = {
 "walk": SubResource("Animation_qfk2r")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vo7tu"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svxlt"]
+animation = &"dig"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pkrrt"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_seg3d"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nt8x8"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mife1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ns0wp"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_d2524"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_vo7tu")
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_kyjkr"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_pkrrt")
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_seg3d")
+blend_point_1/node = SubResource("AnimationNodeAnimation_nt8x8")
 blend_point_1/pos = 1.0
-blend_point_2/node = SubResource("AnimationNodeAnimation_mife1")
+blend_point_2/node = SubResource("AnimationNodeAnimation_ns0wp")
 blend_point_2/pos = -1.0
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ko71"]
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k5kwi"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3mwcx"]
-states/walk/node = SubResource("AnimationNodeBlendSpace1D_d2524")
-states/walk/position = Vector2(352, 67)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_2ko71")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cea0i"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1r2o"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fhhqh"]
+states/dig/node = SubResource("AnimationNodeAnimation_svxlt")
+states/dig/position = Vector2(368, -20)
+states/walk/node = SubResource("AnimationNodeBlendSpace1D_kyjkr")
+states/walk/position = Vector2(368, 88)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_k5kwi"), "walk", "dig", SubResource("AnimationNodeStateMachineTransition_cea0i"), "dig", "walk", SubResource("AnimationNodeStateMachineTransition_i1r2o")]
+graph_offset = Vector2(35, -69)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_niu1f"]
 
@@ -186,8 +195,8 @@ transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_dm5fd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6tecd")
-hframes = 6
+texture = ExtResource("3_6q4qq")
+hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -195,10 +204,10 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_3mwcx")
+tree_root = SubResource("AnimationNodeStateMachine_fhhqh")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_niu1f")
-parameters/walk/blend_position = -0.00321025
+parameters/walk/blend_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qwl5k")
