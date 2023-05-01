@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal pig2 
 
 @export var SPEED: int = 300
 
@@ -40,11 +41,4 @@ func _physics_process(delta):
 	updateAnimation()	
 
 
-func _on_digbox_area_entered(area):
-	
-	if area.name == "truffle_zone":
-		print_debug(area.get_parent().name)
-		# Check if the "Z" key is pressed
-		if Input.is_action_pressed("ui_cancel"):
-			# Delete the sprite
-			area.queue_free()
+						

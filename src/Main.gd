@@ -5,6 +5,8 @@ const TRUFFLE_PATH = "res://src/Truffle.tscn"
 
 var current_truffle: Node2D = null
 
+
+
 @export var mob_scene: PackedScene
 var score
 var screen_size
@@ -48,24 +50,25 @@ func new_game():
 		#if > 100 pix away, sadface
 
 
-func _on_digbox_body_entered(body):
+
+func _on_digbox_area_entered(area):
 	player_touching = true
-	#if area.name == "truffle_zone":
-		#print_debug(area.get_parent().name)
+	if area.name == "truffle_zone":
+		print_debug("enter")
 
 
-func _on_digbox_body_exit(body):
+func _on_digbox_area_exit(area):
 	current_truffle = null
 	player_touching = false
-	#if area.name == "truffle_zone":
-		#print_debug("leaving ",area.get_parent().name)
+	if area.name == "truffle_zone":
+		print_debug("leaving ",area.get_parent().name)
 
 
-func _on_player_dig(body):
+func _on_player_dig(area):
 	if Input.is_action_pressed("action"):
 		#if body.is_in_group("Truffle"):
 		if player_touching == true:
-			body.queue_free()
-			print("deleting",body.name)
+			area.queue_free()
+			print("deleting",area.name)
 			player_touching = false
 			

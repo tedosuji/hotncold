@@ -376,4 +376,5 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7sv31")
 parameters/walk/blend_position = 0
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="dig" from="." to="." method="_on_dig"]

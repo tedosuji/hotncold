@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjaywkqhm3wy6"]
+[gd_scene load_steps=6 format=3 uid="uid://cjaywkqhm3wy6"]
 
 [ext_resource type="Script" path="res://src/Truffle.gd" id="1_3hy0y"]
 [ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="2_mkdem"]
+[ext_resource type="Script" path="res://src/damagable.gd" id="3_w5jei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ewq"]
 size = Vector2(53, 56)
@@ -35,3 +36,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="truffle_zone"]
 shape = SubResource("CircleShape2D_eon76")
+
+[node name="damagable" type="Node" parent="."]
+script = ExtResource("3_w5jei")
