@@ -27,8 +27,8 @@ func spawn_truffles():
 			return
 		var truffle = load(TRUFFLE_PATH).instantiate()
 		# Generate a random position for the Truffle
-		var x = randi_range(0, get_viewport().get_visible_rect().size.x-50)
-		var y = randi_range(0, get_viewport().get_visible_rect().size.y-50)
+		var x = randi_range(75, get_viewport().get_visible_rect().size.x-100)
+		var y = randi_range(100, get_viewport().get_visible_rect().size.y-100)
 		truffle.position = Vector2(x, y)
 		add_child(truffle)
 		
