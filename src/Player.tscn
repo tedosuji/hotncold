@@ -1,12 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddbxhp8wtewk0"]
+[gd_scene load_steps=26 format=3 uid="uid://ddbxhp8wtewk0"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_x52mk"]
+[ext_resource type="Texture2D" uid="uid://craq2gtgi6bks" path="res://assets/sprites/pig_dig2.png" id="2_p5u5y"]
 [ext_resource type="Texture2D" uid="uid://d184yhpikmn2l" path="res://assets/sprites/pig_idle1.png" id="2_y5fki"]
 [ext_resource type="Texture2D" uid="uid://dtjrfa683lfia" path="res://assets/sprites/pig_idle2.png" id="3_32h4g"]
+[ext_resource type="Texture2D" uid="uid://25jka3bddrmw" path="res://assets/sprites/pig_dig3.png" id="3_brxo7"]
 [ext_resource type="PackedScene" uid="uid://1o4lwclrqaol" path="res://src/dialog.tscn" id="3_bup3d"]
 [ext_resource type="Texture2D" uid="uid://puogw0ua1cx3" path="res://assets/sprites/pig_idle3.png" id="4_b744j"]
+[ext_resource type="Texture2D" uid="uid://nbyaoqui836" path="res://assets/sprites/pig_dig4.png" id="4_f65um"]
 [ext_resource type="Texture2D" uid="uid://d1wwdx8fgxhw5" path="res://assets/sprites/pig_idle4.png" id="5_jj3y1"]
+[ext_resource type="Texture2D" uid="uid://crj816jnygb4p" path="res://assets/sprites/pig_dig5.png" id="5_tycli"]
+[ext_resource type="Texture2D" uid="uid://bs4fb3t1be04o" path="res://assets/sprites/pig_dig6.png" id="6_1tj56"]
 [ext_resource type="Texture2D" uid="uid://dueygrxs5sire" path="res://assets/sprites/pig_idle5.png" id="6_wbv4v"]
+[ext_resource type="Texture2D" uid="uid://dvc26wnwvpj6x" path="res://assets/sprites/pig_dig7.png" id="7_bnvb3"]
 [ext_resource type="Texture2D" uid="uid://c8aoshyt7khxw" path="res://assets/sprites/pig_idle6.png" id="7_f8rri"]
 [ext_resource type="Texture2D" uid="uid://dnewx3umagdsn" path="res://assets/sprites/pig_idle7.png" id="8_bv1c6"]
 [ext_resource type="Texture2D" uid="uid://dtecevtslo22c" path="res://assets/sprites/pig_idle8.png" id="9_1oarw"]
@@ -20,6 +26,29 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2vrx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p5u5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_brxo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f65um")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tycli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1tj56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bnvb3")
+}],
+"loop": true,
+"name": &"dig2",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_y5fki")
@@ -102,7 +131,8 @@ script = ExtResource("1_x52mk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n2vrx")
-animation = &"idle"
+animation = &"dig2"
+frame_progress = 0.361416
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
