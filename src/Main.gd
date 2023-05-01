@@ -38,7 +38,7 @@ func _process(delta):
 
 func new_game():
 	score = 0
-	$Player.start($PlayerStart.position)
+	$pigPlayer2.position = $PlayerStart.position
 	$StartTimer.start()
 
 	#check if collision between player & truffle
@@ -67,3 +67,4 @@ func _on_player_dig(body):
 			body.queue_free()
 			print("deleting",body.name)
 			player_touching = false
+			

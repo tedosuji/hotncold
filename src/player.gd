@@ -2,11 +2,14 @@ extends Area2D
 
 signal dig
 
+
+
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	screen_size = get_viewport_rect().size
 	#connect("body_entered", self, "_on_body_entered")
 	hide()
@@ -45,9 +48,8 @@ func _process(delta):
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
 	else:
 		$AnimatedSprite2D.animation = "idle"
-	
-	
-
+			
+		
 #function to start at a position for the pig
 func start(pos):
 	position = pos
