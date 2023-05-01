@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjaywkqhm3wy6"]
 
 [ext_resource type="Script" path="res://src/Truffle.gd" id="1_3hy0y"]
-[ext_resource type="Texture2D" uid="uid://d4bs6s4o0qk0e" path="res://assets/sprites/enemySwimming_1.png" id="1_tgqoi"]
+[ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="2_mkdem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ewq"]
 size = Vector2(53, 56)
@@ -20,7 +20,7 @@ metadata/_edit_group_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_tgqoi")
+texture = ExtResource("2_mkdem")
+region_enabled = true
+region_rect = Rect2(448, 288, 32, 32)
 metadata/_edit_group_ = true
