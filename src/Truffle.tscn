@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjaywkqhm3wy6"]
+[gd_scene load_steps=5 format=3 uid="uid://cjaywkqhm3wy6"]
 
 [ext_resource type="Script" path="res://src/Truffle.gd" id="1_3hy0y"]
 [ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="2_mkdem"]
@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ewq"]
 size = Vector2(53, 56)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eon76"]
+radius = 22.3607
+
 [node name="Truffle" type="RigidBody2D" groups=["Truffle", "Truffles", "truffle", "truffles"]]
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_3hy0y")
 
@@ -26,3 +30,8 @@ texture = ExtResource("2_mkdem")
 region_enabled = true
 region_rect = Rect2(448, 288, 32, 32)
 metadata/_edit_group_ = true
+
+[node name="truffle_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="truffle_zone"]
+shape = SubResource("CircleShape2D_eon76")

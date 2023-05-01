@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfv2vxcjsl6rq"]
+[gd_scene load_steps=23 format=3 uid="uid://cfv2vxcjsl6rq"]
 
 [ext_resource type="Script" path="res://src/pigPlayer/pigPlayer2.gd" id="1_dm5fd"]
 [ext_resource type="Texture2D" uid="uid://c6umh8hm2onff" path="res://assets/sprites/playerpig_dig.png" id="2_6tecd"]
@@ -191,6 +191,10 @@ graph_offset = Vector2(35, -69)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_niu1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwl5k"]
+size = Vector2(31, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na284"]
+radius = 23.0868
 
 [node name="pigPlayer2" type="CharacterBody2D"]
 script = ExtResource("1_dm5fd")
@@ -210,10 +214,8 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_niu1f")
 parameters/walk/blend_position = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qwl5k")
-
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
@@ -226,3 +228,17 @@ drag_vertical_enabled = true
 script = ExtResource("5_5djc3")
 
 [node name="Node" type="Node" parent="pigStateMachine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_qwl5k")
+
+[node name="digbox" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="digbox"]
+shape = SubResource("CircleShape2D_na284")
+
+[connection signal="area_entered" from="digbox" to="." method="_on_digbox_area_entered"]
+[connection signal="area_exited" from="digbox" to="." method="_on_digbox_area_exited"]
+[connection signal="body_entered" from="digbox" to="." method="_on_digbox_body_entered"]

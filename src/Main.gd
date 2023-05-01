@@ -48,16 +48,17 @@ func new_game():
 		#if > 100 pix away, sadface
 
 
-func _on_player_body_entered(body):
-	current_truffle = body
+func _on_digbox_body_entered(body):
 	player_touching = true
-	print("touching, ", player_touching)
+	#if area.name == "truffle_zone":
+		#print_debug(area.get_parent().name)
 
 
-func _on_player_body_exited(body):
+func _on_digbox_body_exit(body):
 	current_truffle = null
 	player_touching = false
-	print("not touching, ", player_touching)
+	#if area.name == "truffle_zone":
+		#print_debug("leaving ",area.get_parent().name)
 
 
 func _on_player_dig(body):

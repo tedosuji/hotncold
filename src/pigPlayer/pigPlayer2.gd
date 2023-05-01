@@ -37,4 +37,14 @@ func _physics_process(delta):
 		state_machine.travel("dig")	
 	
 	move_and_slide()
-	updateAnimation()
+	updateAnimation()	
+
+
+func _on_digbox_area_entered(area):
+	
+	if area.name == "truffle_zone":
+		print_debug(area.get_parent().name)
+		# Check if the "Z" key is pressed
+		if Input.is_action_pressed("ui_cancel"):
+			# Delete the sprite
+			area.queue_free()

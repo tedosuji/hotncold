@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpjkchffoqimo"]
+
+[ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="1_ul4im"]
+
+[sub_resource type="GDScript" id="GDScript_tbwht"]
+script/source = "extends Area2D
+
+func _ready():
+	pass # Replace with function body.
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+	
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6gsen"]
+radius = 30.54
+
+[node name="junks" type="Area2D"]
+script = SubResource("GDScript_tbwht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6gsen")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ul4im")
+region_enabled = true
+region_rect = Rect2(448, 288, 32, 32)
