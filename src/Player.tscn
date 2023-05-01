@@ -1,26 +1,96 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddbxhp8wtewk0"]
+[gd_scene load_steps=20 format=3 uid="uid://ddbxhp8wtewk0"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_x52mk"]
-[ext_resource type="Texture2D" uid="uid://1cxy0krvd6g0" path="res://assets/sprites/player_pig_stand.png" id="2_2b080"]
+[ext_resource type="Texture2D" uid="uid://d184yhpikmn2l" path="res://assets/sprites/pig_idle1.png" id="2_y5fki"]
+[ext_resource type="Texture2D" uid="uid://dtjrfa683lfia" path="res://assets/sprites/pig_idle2.png" id="3_32h4g"]
 [ext_resource type="PackedScene" uid="uid://1o4lwclrqaol" path="res://src/dialog.tscn" id="3_bup3d"]
+[ext_resource type="Texture2D" uid="uid://puogw0ua1cx3" path="res://assets/sprites/pig_idle3.png" id="4_b744j"]
+[ext_resource type="Texture2D" uid="uid://d1wwdx8fgxhw5" path="res://assets/sprites/pig_idle4.png" id="5_jj3y1"]
+[ext_resource type="Texture2D" uid="uid://dueygrxs5sire" path="res://assets/sprites/pig_idle5.png" id="6_wbv4v"]
+[ext_resource type="Texture2D" uid="uid://c8aoshyt7khxw" path="res://assets/sprites/pig_idle6.png" id="7_f8rri"]
+[ext_resource type="Texture2D" uid="uid://dnewx3umagdsn" path="res://assets/sprites/pig_idle7.png" id="8_bv1c6"]
+[ext_resource type="Texture2D" uid="uid://dtecevtslo22c" path="res://assets/sprites/pig_idle8.png" id="9_1oarw"]
+[ext_resource type="Texture2D" uid="uid://bvm84qi2r5cl5" path="res://assets/sprites/pig_idle9.png" id="10_v0m1u"]
+[ext_resource type="Texture2D" uid="uid://bfu86i10wlbf0" path="res://assets/sprites/pig_idle10.png" id="11_xtnln"]
+[ext_resource type="Texture2D" uid="uid://defqtk3bdwymp" path="res://assets/sprites/pig_idle11.png" id="12_xlhjq"]
+[ext_resource type="Texture2D" uid="uid://cobdrysniloya" path="res://assets/sprites/pig_walk1.png" id="14_dlrnm"]
+[ext_resource type="Texture2D" uid="uid://b6bcj8iesw8bl" path="res://assets/sprites/pig_walk2.png" id="15_2tce8"]
+[ext_resource type="Texture2D" uid="uid://w6n7s7ebflle" path="res://assets/sprites/pig_walk3.png" id="16_k5ld1"]
+[ext_resource type="Texture2D" uid="uid://dnaienqg5dge0" path="res://assets/sprites/pig_walk4.png" id="17_fkws5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2vrx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2b080")
+"texture": ExtResource("2_y5fki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_32h4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b744j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jj3y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wbv4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f8rri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bv1c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1oarw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v0m1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xtnln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xlhjq")
 }],
 "loop": true,
-"name": &"up",
-"speed": 5.0
+"name": &"idle",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2b080")
+"texture": ExtResource("14_dlrnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2tce8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k5ld1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fkws5")
+}],
+"loop": true,
+"name": &"up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_dlrnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2tce8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k5ld1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fkws5")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ode1"]
@@ -33,7 +103,8 @@ script = ExtResource("1_x52mk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n2vrx")
-animation = &"up"
+animation = &"walk"
+frame_progress = 0.371589
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
