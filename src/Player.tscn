@@ -122,3 +122,5 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="dialog" parent="Camera2D" instance=ExtResource("3_bup3d")]
+
+[connection signal="dig" from="." to="." method="_on_dig"]

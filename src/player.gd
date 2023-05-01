@@ -61,3 +61,4 @@ func _on_body_entered(body):
 		if Input.is_action_pressed("ui_cancel"):
 			# Delete the sprite
 			body.queue_free()
+

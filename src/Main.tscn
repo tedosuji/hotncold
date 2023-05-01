@@ -290,4 +290,4 @@ position = Vector2(1279, 484)
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="body_exited" from="Player" to="." method="_on_player_body_exited"]
-[connection signal="dig" from="Player" to="." method="player_dig"]
+[connection signal="dig" from="Player" to="." method="_on_player_dig"]
