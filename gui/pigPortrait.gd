@@ -6,13 +6,14 @@ extends Panel
 func _ready():
 	animation_tree.active = true
 
-func updateAnimation():
+#func updateAnimation():
 
+func _physics_process(delta):
 	var state_machine = $AnimationTree.get("parameters/playback")
 	
+	state_machine.travel("portrait_idle")
+	
 	if Input.is_action_pressed("action"):
-		
 		state_machine.travel("portrait_truffle")
 
-func _process(delta):
-	pass
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://esmivm6cm3la"]
+[gd_scene load_steps=19 format=3 uid="uid://esmivm6cm3la"]
 
 [ext_resource type="Texture2D" uid="uid://cuu2cty2xfd6x" path="res://assets/sprites/playerpig_portrait2.png" id="1_3lsow"]
 [ext_resource type="Script" path="res://gui/pigPortrait.gd" id="1_a23t6"]
@@ -133,13 +133,18 @@ animation = &"portrait_truffle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb8hx"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_adlap"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0c7yg"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dv3kn"]
 states/Start/position = Vector2(138, 66)
-states/idle/node = SubResource("AnimationNodeBlendSpace1D_i63e1")
-states/idle/position = Vector2(299, 49)
+states/portrait_idle/node = SubResource("AnimationNodeBlendSpace1D_i63e1")
+states/portrait_idle/position = Vector2(299, 49)
 states/portrait_truffle/node = SubResource("AnimationNodeAnimation_tbcr4")
-states/portrait_truffle/position = Vector2(328, -52)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gb8hx")]
+states/portrait_truffle/position = Vector2(322, -38)
+transitions = ["Start", "portrait_idle", SubResource("AnimationNodeStateMachineTransition_gb8hx"), "portrait_idle", "portrait_truffle", SubResource("AnimationNodeStateMachineTransition_adlap"), "portrait_truffle", "portrait_idle", SubResource("AnimationNodeStateMachineTransition_0c7yg")]
 graph_offset = Vector2(-69, -84)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_250px"]
@@ -166,7 +171,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_dv3kn")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_250px")
-parameters/idle/blend_position = 0
+parameters/portrait_idle/blend_position = 0
 
 [node name="portraitBG" type="Sprite2D" parent="."]
 z_index = -1
