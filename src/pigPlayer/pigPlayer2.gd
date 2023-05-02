@@ -35,7 +35,9 @@ func _physics_process(delta):
 	#if direction.y != 0:
 		#state_machine.travel("walk")
 	if Input.is_action_pressed("action"):
-		state_machine.travel("dig")	
+		state_machine.travel("dig")
+		
+			
 	
 	move_and_slide()
 	updateAnimation()	

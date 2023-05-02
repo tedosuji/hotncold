@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bicppdxouto1f"]
+
+[ext_resource type="PackedScene" uid="uid://esmivm6cm3la" path="res://gui/portrait1.tscn" id="1_jdyql"]
+
+[node name="portraitContrainer" type="HBoxContainer"]
+offset_right = 74.0
+offset_bottom = 70.0
+
+[node name="Portrait1" parent="." instance=ExtResource("1_jdyql")]
+layout_mode = 2

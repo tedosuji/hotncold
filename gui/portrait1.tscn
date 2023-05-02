@@ -1,0 +1,176 @@
+[gd_scene load_steps=17 format=3 uid="uid://esmivm6cm3la"]
+
+[ext_resource type="Texture2D" uid="uid://cuu2cty2xfd6x" path="res://assets/sprites/playerpig_portrait2.png" id="1_3lsow"]
+[ext_resource type="Script" path="res://gui/pigPortrait.gd" id="1_a23t6"]
+[ext_resource type="Texture2D" uid="uid://bu2svrm4m5r3" path="res://assets/sprites/playerpig_portrait1.png" id="1_snclb"]
+[ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="2_ujnjm"]
+
+[sub_resource type="Animation" id="Animation_qht1g"]
+resource_name = "portrait_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_snclb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_lod06"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lo452"]
+resource_name = "portrait_truffle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3lsow")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c5so"]
+_data = {
+"RESET": SubResource("Animation_lod06"),
+"portrait_idle": SubResource("Animation_qht1g"),
+"portrait_truffle": SubResource("Animation_lo452")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cx54k"]
+animation = &"portrait_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbaax"]
+animation = &"portrait_truffle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dvuta"]
+animation = &"portrait_truffle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_i63e1"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_cx54k")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_sbaax")
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_dvuta")
+blend_point_2/pos = 1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tbcr4"]
+animation = &"portrait_truffle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb8hx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dv3kn"]
+states/Start/position = Vector2(138, 66)
+states/idle/node = SubResource("AnimationNodeBlendSpace1D_i63e1")
+states/idle/position = Vector2(299, 49)
+states/portrait_truffle/node = SubResource("AnimationNodeAnimation_tbcr4")
+states/portrait_truffle/position = Vector2(328, -52)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gb8hx")]
+graph_offset = Vector2(-69, -84)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_250px"]
+
+[node name="pigPortrait" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 63.0
+offset_bottom = 63.0
+script = ExtResource("1_a23t6")
+
+[node name="Portrait1" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lsow")
+centered = false
+hframes = 7
+region_rect = Rect2(296, 416, 56, 56)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Portrait1")
+libraries = {
+"": SubResource("AnimationLibrary_1c5so")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_dv3kn")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_250px")
+parameters/idle/blend_position = 0
+
+[node name="portraitBG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(33, 33)
+texture = ExtResource("2_ujnjm")
+region_enabled = true
+region_rect = Rect2(288, 352, 64, 64)

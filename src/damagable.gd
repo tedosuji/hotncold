@@ -9,3 +9,4 @@ func hit(damage: int):
 	
 	if(health <= 0):
 		get_parent().queue_free()
+		

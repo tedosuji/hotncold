@@ -37,11 +37,11 @@ func spawn_truffles():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_on_player_dig(current_truffle)
-
+	
 func new_game():
 	score = 0
-	$pigPlayer2.position = $PlayerStart.position
-	$StartTimer.start()
+	
+	#$StartTimer.start()
 
 	#check if collision between player & truffle
 		#if <= 10 pix away, red
