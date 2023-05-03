@@ -10,10 +10,9 @@ size = Vector2(53, 56)
 [sub_resource type="CircleShape2D" id="CircleShape2D_eon76"]
 radius = 22.3607
 
-[node name="Truffle" type="RigidBody2D" groups=["Truffle", "Truffles", "truffle", "truffles"]]
+[node name="Truffle" type="CharacterBody2D" groups=["Truffle", "Truffles", "truffle", "truffles"]]
 collision_layer = 2
 collision_mask = 2
-gravity_scale = 0.0
 script = ExtResource("1_3hy0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,6 +26,7 @@ metadata/_edit_group_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_mkdem")
 region_enabled = true
 region_rect = Rect2(448, 288, 32, 32)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm3m882js11k7"]
+
+[ext_resource type="Script" path="res://gui/itembar_text.gd" id="1_cn20m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gptqv"]
+bg_color = Color(0.12549, 0.647059, 0.878431, 0.227451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+anti_aliasing_size = 7.205
+
+[node name="items_textbox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1272.0
+offset_bottom = 715.0
+script = ExtResource("1_cn20m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1266.0
+offset_bottom = 703.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gptqv")

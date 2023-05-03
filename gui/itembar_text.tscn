@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://btg6w88ebjaxi"]
+
+[ext_resource type="Script" path="res://gui/itembar_text.gd" id="1_qbrvm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ypvq"]
+bg_color = Color(0, 0.278431, 0.52549, 0.152941)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+anti_aliasing_size = 9.128
+
+[node name="itembar_text" type="Label"]
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 5.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ypvq")
+script = ExtResource("1_qbrvm")
