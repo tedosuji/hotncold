@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm3m882js11k7"]
-
-[ext_resource type="Script" path="res://gui/itembar_text.gd" id="1_cn20m"]
+[gd_scene load_steps=2 format=3 uid="uid://bm3m882js11k7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gptqv"]
 bg_color = Color(0.12549, 0.647059, 0.878431, 0.227451)
@@ -21,7 +19,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1272.0
 offset_bottom = 715.0
-script = ExtResource("1_cn20m")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

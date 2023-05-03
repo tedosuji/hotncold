@@ -1,6 +1,6 @@
 extends Control
 
-@export var item_textbox : PackedScene
+@export var itembar_text : PackedScene
 
 func _ready():
 	SignalBus.connect("on_health_changed", on_signal_health_changed)
@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func on_signal_health_changed(node: Node, amount_changed: int):
-	var label_instance: Label = item_textbox.instantiate()
+	var label_instance: Label = itembar_text.instantiate()
 	node.add_child(label_instance)
 	#breakpoint
 	if absi(amount_changed) == 5:

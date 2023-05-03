@@ -4,3 +4,7 @@ extends Label
 
 func _process(delta):
 	position += float_speed * delta
+
+
+func _on_timer_timeout():
+	queue_free()

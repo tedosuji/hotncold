@@ -9,4 +9,4 @@ anchors_preset = 0
 offset_right = 1272.0
 offset_bottom = 715.0
 script = ExtResource("1_b6ov4")
-item_textbox = ExtResource("2_7bm36")
+itembar_text = ExtResource("2_7bm36")
