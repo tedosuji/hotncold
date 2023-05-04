@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://src/Main.gd" id="1_cakcx"]
 [ext_resource type="PackedScene" uid="uid://cjaywkqhm3wy6" path="res://src/Truffle.tscn" id="2_lxh03"]
-[ext_resource type="PackedScene" uid="uid://b7l8xvwscrrhs" path="res://gui/health_change_manager.tscn" id="3_7j7o4"]
 [ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="4_mf2g5"]
 [ext_resource type="PackedScene" uid="uid://cfv2vxcjsl6rq" path="res://src/pigPlayer/pig_player_2.tscn" id="4_pkx6k"]
 [ext_resource type="PackedScene" uid="uid://bicppdxouto1f" path="res://gui/portrait_contrainer.tscn" id="5_71ji7"]
+[ext_resource type="PackedScene" uid="uid://bm3m882js11k7" path="res://gui/event_textbox.tscn" id="7_g2ugo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_db21i"]
 texture = ExtResource("4_mf2g5")
@@ -770,8 +770,6 @@ sources/2 = SubResource("TileSetAtlasSource_db21i")
 script = ExtResource("1_cakcx")
 mob_scene = ExtResource("2_lxh03")
 
-[node name="HealthChangeManager" parent="." instance=ExtResource("3_7j7o4")]
-
 [node name="StageTimer" type="Timer" parent="."]
 
 [node name="PlayerStart" type="Marker2D" parent="."]
@@ -810,3 +808,9 @@ offset_right = 88.0
 offset_bottom = -64.0
 grow_vertical = 0
 scale = Vector2(2, 2)
+
+[node name="event_textbox" parent="CanvasLayer" instance=ExtResource("7_g2ugo")]
+offset_left = 186.0
+offset_top = 625.0
+offset_right = 185.0
+offset_bottom = 621.0

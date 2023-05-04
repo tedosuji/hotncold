@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjaywkqhm3wy6"]
+[gd_scene load_steps=7 format=3 uid="uid://cjaywkqhm3wy6"]
 
 [ext_resource type="Script" path="res://src/Truffle.gd" id="1_3hy0y"]
 [ext_resource type="Texture2D" uid="uid://dusbix8d0t1wa" path="res://assets/sprites/Sprite-sheet.png" id="2_mkdem"]
+[ext_resource type="Script" path="res://src/truffle_zone.gd" id="3_nnwxl"]
 [ext_resource type="Script" path="res://src/damagable.gd" id="3_w5jei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1ewq"]
@@ -20,7 +21,6 @@ light_mask = 0
 visibility_layer = 0
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_e1ewq")
-metadata/_edit_group_ = true
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 metadata/_edit_group_ = true
@@ -33,6 +33,8 @@ region_rect = Rect2(448, 288, 32, 32)
 metadata/_edit_group_ = true
 
 [node name="truffle_zone" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("3_nnwxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="truffle_zone"]
 shape = SubResource("CircleShape2D_eon76")

@@ -235,7 +235,7 @@ size = Vector2(29.5, 11)
 radius = 23.0868
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wbtua"]
-radius = 45.8912
+radius = 59.0339
 
 [node name="pigPlayer2" type="CharacterBody2D"]
 z_index = 1
@@ -267,8 +267,9 @@ position = Vector2(0.25, -5.5)
 shape = SubResource("RectangleShape2D_qwl5k")
 
 [node name="digbox" type="Area2D" parent="."]
-collision_mask = 3
+collision_mask = 31
 monitoring = false
+priority = 1.0
 script = ExtResource("6_cuc6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="digbox"]
@@ -286,7 +287,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="sniffbox" type="Area2D" parent="."]
-collision_mask = 3
+collision_mask = 31
 monitoring = false
 script = ExtResource("7_4x74v")
 

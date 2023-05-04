@@ -1,27 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm3m882js11k7"]
+[gd_scene load_steps=3 format=3 uid="uid://bm3m882js11k7"]
+
+[ext_resource type="Script" path="res://gui/event_textbox.gd" id="1_r3n01"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gptqv"]
-bg_color = Color(0.12549, 0.647059, 0.878431, 0.227451)
+bg_color = Color(0.25098, 0.541176, 0.639216, 0.913725)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 anti_aliasing_size = 7.205
 
-[node name="items_textbox" type="Control"]
+[node name="event_textbox" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 1272.0
-offset_bottom = 715.0
+script = ExtResource("1_r3n01")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1266.0
-offset_bottom = 703.0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 282.0
+offset_bottom = 47.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gptqv")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 419.0
+offset_bottom = 75.0
+
+[node name="Timer" type="Timer" parent="Panel/Label"]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Panel/Label/Timer" to="." method="_on_timer_timeout"]
