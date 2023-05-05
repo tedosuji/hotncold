@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://gui/event_textbox.gd" id="1_r3n01"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gptqv"]
-bg_color = Color(0.25098, 0.541176, 0.639216, 0.913725)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-anti_aliasing_size = 7.205
+bg_color = Color(0.0588235, 0.494118, 0.909804, 0.254902)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing_size = 10.0
 
 [node name="event_textbox" type="Control"]
 layout_mode = 3
@@ -26,14 +27,16 @@ script = ExtResource("1_r3n01")
 layout_mode = 0
 offset_left = 1.0
 offset_top = 6.0
-offset_right = 282.0
-offset_bottom = 47.0
+offset_right = 278.0
+offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gptqv")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 419.0
-offset_bottom = 75.0
+offset_left = 29.0
+offset_right = 280.0
+offset_bottom = 46.0
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Panel/Label"]
 wait_time = 4.0

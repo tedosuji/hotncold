@@ -231,8 +231,8 @@ graph_offset = Vector2(-55, -42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwl5k"]
 size = Vector2(29.5, 11)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_na284"]
-radius = 23.0868
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0why"]
+size = Vector2(30, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wbtua"]
 radius = 59.0339
@@ -267,14 +267,14 @@ position = Vector2(0.25, -5.5)
 shape = SubResource("RectangleShape2D_qwl5k")
 
 [node name="digbox" type="Area2D" parent="."]
-collision_mask = 31
+collision_layer = 4
+collision_mask = 2
 monitoring = false
-priority = 1.0
 script = ExtResource("6_cuc6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="digbox"]
-position = Vector2(0, -14)
-shape = SubResource("CircleShape2D_na284")
+position = Vector2(-1, -13)
+shape = SubResource("RectangleShape2D_h0why")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -287,7 +287,10 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="sniffbox" type="Area2D" parent="."]
-collision_mask = 31
+light_mask = 4
+visibility_layer = 31
+collision_layer = 8
+collision_mask = 2
 monitoring = false
 script = ExtResource("7_4x74v")
 
@@ -295,5 +298,6 @@ script = ExtResource("7_4x74v")
 position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_wbtua")
 
+[connection signal="area_exited" from="digbox" to="digbox" method="_on_area_exited"]
 [connection signal="body_entered" from="digbox" to="digbox" method="_on_body_entered"]
 [connection signal="body_entered" from="sniffbox" to="sniffbox" method="_on_body_entered"]

@@ -34,6 +34,7 @@ metadata/_edit_group_ = true
 
 [node name="truffle_zone" type="Area2D" parent="."]
 collision_layer = 2
+collision_mask = 12
 script = ExtResource("3_nnwxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="truffle_zone"]
@@ -41,3 +42,5 @@ shape = SubResource("CircleShape2D_eon76")
 
 [node name="damagable" type="Node" parent="."]
 script = ExtResource("3_w5jei")
+
+[connection signal="tree_exited" from="truffle_zone" to="truffle_zone" method="_on_tree_exited"]

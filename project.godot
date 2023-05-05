@@ -67,6 +67,8 @@ action={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Truffles"
+2d_physics/layer_3="digbox"
+2d_physics/layer_4="sniffbox"
 
 [rendering]
 
