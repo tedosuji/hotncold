@@ -14,3 +14,4 @@ func use_dialoge():
 
 func _on_tree_exited():
 	SignalBus.emit_signal("on_truffle_exit", get_parent(), death)
+	SignalBus.emit_signal("on_score_increment", 1)

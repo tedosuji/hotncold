@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hrnk44rgbdeb"]
+[gd_scene load_steps=11 format=3 uid="uid://hrnk44rgbdeb"]
 
 [ext_resource type="Script" path="res://src/Main.gd" id="1_cakcx"]
 [ext_resource type="PackedScene" uid="uid://cjaywkqhm3wy6" path="res://src/Truffle.tscn" id="2_lxh03"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cfv2vxcjsl6rq" path="res://src/pigPlayer/pig_player_2.tscn" id="4_pkx6k"]
 [ext_resource type="PackedScene" uid="uid://bicppdxouto1f" path="res://gui/portrait_contrainer.tscn" id="5_71ji7"]
 [ext_resource type="PackedScene" uid="uid://bm3m882js11k7" path="res://gui/event_textbox.tscn" id="7_g2ugo"]
+[ext_resource type="PackedScene" uid="uid://le5gicjm0yfp" path="res://gui/score_container.tscn" id="7_uphpf"]
+[ext_resource type="PackedScene" uid="uid://2xikny3ws3tp" path="res://gui/countdown_timer.tscn" id="8_mjvom"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_db21i"]
 texture = ExtResource("4_mf2g5")
@@ -814,3 +816,11 @@ offset_left = 186.0
 offset_top = 625.0
 offset_right = 185.0
 offset_bottom = 621.0
+
+[node name="score_container" parent="CanvasLayer" instance=ExtResource("7_uphpf")]
+
+[node name="countdown_timer" parent="CanvasLayer" instance=ExtResource("8_mjvom")]
+offset_left = 532.0
+offset_top = 8.0
+offset_right = 532.0
+offset_bottom = 8.0

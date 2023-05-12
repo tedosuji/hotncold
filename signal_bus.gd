@@ -7,3 +7,5 @@ signal on_digbox_entered(node: Node, visible: int)
 signal on_sniffbox_entered(node: Node, visible: int)
 
 signal on_truffle_exit(node: Node, visible: int)
+
+signal on_score_increment(amount)

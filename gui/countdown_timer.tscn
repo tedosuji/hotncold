@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://2xikny3ws3tp"]
+
+[ext_resource type="Script" path="res://gui/countdown_timer.gd" id="1_vb4g7"]
+
+[node name="countdown_timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vb4g7")
+minutes = 3
+
+[node name="min" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 59.0
+offset_bottom = 41.0
+
+[node name="sec" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 1.0
+offset_right = 87.0
+offset_bottom = 41.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
