@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfv2vxcjsl6rq"]
+[gd_scene load_steps=25 format=3 uid="uid://cfv2vxcjsl6rq"]
 
 [ext_resource type="Script" path="res://src/pigPlayer/pigPlayer2.gd" id="1_dm5fd"]
 [ext_resource type="Texture2D" uid="uid://c6umh8hm2onff" path="res://assets/sprites/playerpig_dig.png" id="2_6tecd"]
@@ -226,8 +226,6 @@ states/walk/position = Vector2(368, 88)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_k5kwi"), "walk", "dig", SubResource("AnimationNodeStateMachineTransition_cea0i"), "dig", "walk", SubResource("AnimationNodeStateMachineTransition_i1r2o")]
 graph_offset = Vector2(-55, -42)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_niu1f"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwl5k"]
 size = Vector2(29.5, 11)
 
@@ -254,7 +252,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_fhhqh")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_niu1f")
 parameters/walk/blend_position = 0
 
 [node name="pigStateMachine" type="Node" parent="."]
