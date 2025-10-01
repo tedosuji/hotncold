@@ -18,7 +18,7 @@ func _ready():
 
 	# Setup dig timer
 	dig_timer = Timer.new()
-	dig_timer.wait_time = 2.0
+	dig_timer.wait_time = 0.6
 	dig_timer.one_shot = true
 	dig_timer.timeout.connect(stop_digging)
 	add_child(dig_timer)

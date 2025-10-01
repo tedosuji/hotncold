@@ -4,8 +4,9 @@ const NUM_TRUFFLES = 10
 const TRUFFLE_PATH = "res://src/Truffle.tscn"
 
 var current_truffle: Node2D = null
-
-
+var truffles_collected: int = 0
+var start_time: float = 0.0
+var game_time: float = 0.0
 
 @export var mob_scene: PackedScene
 var score
@@ -17,7 +18,9 @@ func _ready():
 	randomize()
 	spawn_truffles()
 	#set_process_input(true)
-	new_game() 
+	new_game()
+	start_time = Time.get_ticks_msec() / 1000.0
+	SignalBus.emit_signal("on_truffles_remaining", NUM_TRUFFLES) 
 
 
 func spawn_truffles():
@@ -37,6 +40,7 @@ func spawn_truffles():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_on_player_dig(current_truffle)
+	game_time = (Time.get_ticks_msec() / 1000.0) - start_time
 	
 func new_game():
 	score = 0
@@ -71,4 +75,22 @@ func _on_player_dig(area):
 			area.queue_free()
 			print("deleting",area.name)
 			player_touching = false
-			
+			truffles_collected += 1
+
+			# Update remaining truffles display
+			var remaining = NUM_TRUFFLES - truffles_collected
+			SignalBus.emit_signal("on_truffles_remaining", remaining)
+
+			# Check if all truffles collected
+			if truffles_collected >= NUM_TRUFFLES:
+				game_complete()
+
+func game_complete():
+	# Stop the background music
+	if has_node("BackgroundMusic"):
+		$BackgroundMusic.stop()
+
+	# Save the completion time and go to completion screen
+	GameData.completion_time = game_time
+	get_tree().change_scene_to_file("res://src/GameCompleteScreen.tscn")
+
