@@ -42,6 +42,6 @@ func is_high_score(time: float) -> bool:
 
 func format_time(time: float) -> String:
 	var minutes = int(time / 60)
-	var seconds = int(time) % 60
+	var seconds = int(time - (minutes * 60))
 	var milliseconds = int((time - int(time)) * 100)
 	return "%02d:%02d.%02d" % [minutes, seconds, milliseconds]

@@ -41,20 +41,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer1" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="NoOptionsLabel" type="Label" parent="VBoxContainer"]
+[node name="DebugLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "No options available"
+text = "Debug Mode (shows arrow & truffle locations)"
 horizontal_alignment = 1
 
+[node name="DebugCheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Enable Debug"
+
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Back to Main Menu"
 
+[connection signal="toggled" from="VBoxContainer/DebugCheckBox" to="." method="_on_debug_check_box_toggled"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

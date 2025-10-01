@@ -2,17 +2,16 @@ extends Control
 
 @onready var scoreLabel: Label = $score
 
-var score: int = 0
 var truffles_remaining: int = 10
 
 func _ready():
-	SignalBus.connect("on_score_increment", _on_score_increment)
+	print("Score container ready, connecting signal")
 	SignalBus.connect("on_truffles_remaining", _on_truffles_remaining)
-
-func _on_score_increment(amount: int):
-	score += amount
-	scoreLabel.text = str(score)
+	# Set initial display
+	scoreLabel.text = str(truffles_remaining)
+	print("Initial counter set to: ", truffles_remaining)
 
 func _on_truffles_remaining(remaining: int):
 	truffles_remaining = remaining
 	scoreLabel.text = str(truffles_remaining)
+	print("Truffles remaining updated to: ", truffles_remaining)

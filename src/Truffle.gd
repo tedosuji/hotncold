@@ -1,8 +1,18 @@
 extends CharacterBody2D
 
+@onready var sprite = $Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_to_group("Truffle")
+	GameSettings.debug_mode_changed.connect(_on_debug_mode_changed)
+	# Set initial visibility based on debug mode
+	if sprite:
+		sprite.visible = GameSettings.debug_mode
+
+func _on_debug_mode_changed(enabled: bool):
+	if sprite:
+		sprite.visible = enabled
 
 
 
